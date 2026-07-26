@@ -7,4 +7,5 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
 WORKDIR /workspace
-ENTRYPOINT ["pi"]
+# Keep container alive so we can docker exec in to run pi interactively
+CMD ["sleep", "infinity"]
