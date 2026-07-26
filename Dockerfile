@@ -6,6 +6,9 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN npm install -g --ignore-scripts @earendil-works/pi-coding-agent
 
+# Install DeepInfra custom provider extension
+RUN mkdir -p /root/.pi/agent/extensions/deepinfra
+COPY deepinfra/index.ts /root/.pi/agent/extensions/deepinfra/index.ts
+
 WORKDIR /workspace
-# Keep container alive so we can docker exec in to run pi interactively
 CMD ["sleep", "infinity"]
